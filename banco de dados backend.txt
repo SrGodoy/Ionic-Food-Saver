@@ -1,0 +1,43 @@
+Para subir para o docker
+docker-compose up -d
+
+
+docker exec -it backend-mysql-1 mysql -u user -p
+
+senha: password
+
+Para mostrar qual banco de dados esta conectado
+SELECT DATABASE;
+
+Mostra todos os bancos de dados;
+SHOW DATABASES;
+
+sel
+USE DATABASE produto_db:
+
+
+seleciona o banco
+USE produtos_db;
+
+cria tabela
+CREATE TABLE produtos (
+  id VARCHAR(50) PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price FLOAT NOT NULL,
+  quantity INT DEFAULT 0,
+  description TEXT,
+  expirationDate DATE,
+  image LONGTEXT,
+  createdAt DATETIME,
+  syncStatus VARCHAR(20)
+);
+
+
+CREATE TABLE vendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    produto_id VARCHAR(255) NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL DEFAULT 1,
+    preco DECIMAL(10,2) NOT NULL,
+    data_venda DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

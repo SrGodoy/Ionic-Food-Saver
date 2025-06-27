@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS produtos (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    expiration_date DATE,
+    description TEXT,
+    quantity INT DEFAULT 0,
+    price DECIMAL(10,2) NOT NULL,
+    image LONGTEXT,
+    sync_status VARCHAR(50) DEFAULT 'pending',
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS vendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    produto_id VARCHAR(255) NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL DEFAULT 1,
+    preco DECIMAL(10,2) NOT NULL,
+    data_venda DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
